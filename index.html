@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title> Lab 15- Shopping List</title>
+	<link href= "main.css" rel="stylesheet">
+</head>
+
+<body>
+	<h2> Shopping List</h2>
+
+	<div ng-app="myModule" ng-controller="myController" class="container">
+
+		<h3> Item </h3>
+		<input type="text" ng-model="newItem" placeholder="Grocery Item"> 
+		
+		<h3> Price </h3>
+		<input type="number" ng-model="newPrice" placeholder="Price of Item">
+
+		<button ng-click="add()"> add </button>
+
+		<ul ng-repeat="grocery in groceryItems |filter:groceryItemOrPrice"> 
+			<li> {{grocery.item}} {{grocery.price | currency}} </li>
+		</ul>
+
+		<input type="text" ng-model="groceryItemOrPrice" placeholder="Search List">
+
+		<h2> total= {{total | currency}} </h2>
+		
+	</div>	
+
+
+	<img src="groceries.png">
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+
+<script src= "script.js"></script>
+
+</body>
+</html>
